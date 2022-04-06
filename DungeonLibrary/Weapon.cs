@@ -23,7 +23,7 @@
             get { return _minDamage; }
             set
             {
-                if (value <= _maxDamage)
+                if (value <= _maxDamage && value > 0)
                 {
                     //if the min damage is less than or equal to max damage
                     //we will allow them to set the value
@@ -33,7 +33,7 @@
                 {
                     //if min damage is greater than max damage 
                     //set min damage to max damage
-                    _minDamage = _maxDamage;
+                    _minDamage = 1;
                 }
             }
         }

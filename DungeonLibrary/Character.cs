@@ -51,27 +51,25 @@
         {
             return string.Format($"Name: {Name}\tLife: {Life}\tHit Chance: {HitChance}\tBlock: {Block}\tMax Life: {MaxLife}");
         }
-
-
+        
         //CalcBlock() – returns the value of Block
-
         public decimal CalcBlock()
         {
-            decimal Block = .40m;
+            //decimal Block = .40m;
             return Block;
         }
 
         //CalcHitChance() – returns the value of HitChance
         public decimal CalcHitChance()
         {
-            decimal HitChance = .90m;
+            //decimal HitChance = .90m;
             return HitChance;
         }
 
         //CalcDamage() – returns 0
         public decimal CalcDamage()
         {
-            decimal Damage = 0;
+            //decimal Damage = 0;
             return Damage;
         }
 
