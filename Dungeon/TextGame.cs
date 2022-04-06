@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using DungeonLibrary;
+
 
 
 namespace Dungeon
@@ -53,6 +55,13 @@ namespace Dungeon
             return roomTypes[roomSwitch];
         } //end NewRoom() method
 
+        static bool battle()
+        {
+            bool battleWin = true;
+            //TODO: calculate combat and return bool to indicate win or loss
+            return battleWin;
+        }
+
         static void Main(string[] args)
         {
             Console.Title = "Dungeon Game";
@@ -67,7 +76,7 @@ namespace Dungeon
             bool continueGame = true;
             do //this will continue while continueGame is true
             {
-                #region player name
+                #region player creation
                 //repeat value for player name menu
                 bool repeat = true;
                 //variable declarations defined here to maintain scope
@@ -97,6 +106,12 @@ namespace Dungeon
 
                 Console.WriteLine("Great!\nPress any key to proceed to the next room.");
                 Console.ReadKey(true);
+
+                //TODO get character stats
+
+
+                //TODO get weapon stats
+
 
                 #region loop to get valid menu selections
                 //boolean counter variable for inner menu loop
@@ -139,8 +154,9 @@ namespace Dungeon
                         case ConsoleKey.NumPad1:
                         case ConsoleKey.D1:
                             Random rand = new Random();
-                            int battle = rand.Next(2);
-                            if (battle == 1)
+                            //bool battleWin = battle();
+                            //battle method
+                            if (battle())
                             {
                                 Console.WriteLine("You win.");
                                 Console.Write("Press any key to proceed to the next room. ");
