@@ -16,14 +16,14 @@ namespace Dungeon
         {
             //array of monster names
             string[] enemyTypes =
-           {
-                        "giant spider",
-                        "pegasus with red eyes",
-                        "squirrel with absurdly sharp fangs",
-                        "rabbit with three eyes",
-                        "centaur",
-                        "panther",
-                        "three headed wolf"
+            {
+                "giant spider",
+                "pegasus with red eyes",
+                "squirrel with absurdly sharp fangs",
+                "rabbit with three eyes",
+                "centaur",
+                "panther",
+                "three headed wolf"
             };
 
             //generate a random int to select a random item from the enemy array
@@ -71,6 +71,7 @@ namespace Dungeon
             Console.WriteLine("        Do you dare enter...?");
             Console.WriteLine("     Press any key to continue.");
             Console.ReadKey(true);
+            Console.Clear();
             #endregion title menu
             //for do while loop for primary gameplay
             bool continueGame = true;
@@ -89,22 +90,12 @@ namespace Dungeon
                     Console.Clear();
                     Console.WriteLine("What is your name? ");
                     playerName = Console.ReadLine();
-                    Console.Clear();
-                    Console.Write($"Hello, {playerName}. Did I get your name right? (Y/N) ");
+                    Console.Write($"\nHello, {playerName}. Did I get your name right? (Y/N) ");
                     answer = Console.ReadLine().ToUpper();
-                    if (answer == "Y" || answer == "YES")
-                    {
-                        repeat = false;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Sorry about that, let's try again.");
-                    }
-                } while (answer != "Y");
+                } while (answer != "Y" && answer != "YES");
                 #endregion player name
 
-                Console.WriteLine("Great!\nPress any key to proceed to the next room.");
+                Console.WriteLine("\nGreat!\nPress any key to proceed to the next room.");
                 Console.ReadKey(true);
 
                 //TODO get character stats
@@ -124,6 +115,7 @@ namespace Dungeon
                     //store the selections in room & enemy variables to reuse
                     string room = newRoom();
                     string enemy = newEnemy();
+                    //TODO: call a method to generate a new enemy and store in a string value
 
                     Console.Clear();
                     Console.WriteLine($"There is a {enemy} standing before you, and it seems ready to fight.");

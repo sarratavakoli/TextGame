@@ -69,7 +69,7 @@
         //CalcDamage() – returns 0
         public decimal CalcDamage()
         {
-            //decimal Damage = 0;
+            decimal Damage = 0;
             return Damage;
         }
 
