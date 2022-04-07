@@ -77,13 +77,15 @@ namespace Dungeon
             bool continueGame = true;
             do //this will continue while continueGame is true
             {
-                #region player creation
                 //repeat value for player name menu
                 bool repeat = true;
-                //variable declarations defined here to maintain scope
                 string playerName = "";
                 string answer = "N";
+                
+                //create a weapon
+                Weapon playerWeapon = new Weapon(10, 30, "High Steel Fork", 3, true, WeaponType.Polearms);
                 //create a player
+                Player player = new Player(100, "New Player", 80, 40, 100, Race.viera, playerWeapon);
                 //get player name 
                 do
                 {
@@ -93,18 +95,8 @@ namespace Dungeon
                     Console.Write($"\nHello, {playerName}. Did I get your name right? (Y/N) ");
                     answer = Console.ReadLine().ToUpper();
                 } while (answer != "Y" && answer != "YES");
-                #endregion player name
-
                 Console.WriteLine("\nGreat!\nPress any key to proceed to the next room.");
                 Console.ReadKey(true);
-
-                //TODO get character stats
-
-
-                //TODO get weapon stats
-
-
-                #region loop to get valid menu selections
                 //boolean counter variable for inner menu loop
                 bool repeatMenu = true;
                 //do while for menu loop
@@ -119,16 +111,6 @@ namespace Dungeon
 
                     Console.Clear();
                     Console.WriteLine($"There is a {enemy} standing before you, and it seems ready to fight.");
-                    //switch for menu that includes
-                    //attack 
-                    //win - break out of inner loop
-                    //lose - break out of both loops
-                    //run away
-                    //leave inner loop 
-                    //character info
-                    //monster info
-                    //exit
-                    //break out of both loops
                     Console.WriteLine($"You look at the {enemy} and evaluate your options. What will you do? \n\n");
                     Console.WriteLine("Menu:");
                     Console.WriteLine("1) Attack");
@@ -185,7 +167,6 @@ namespace Dungeon
                     Console.ReadKey(true);
 
                 } while (repeatMenu); //menu will repeat by default
-                #endregion to end menu loop
 
                 //break out of game loop
                 continueGame = false;
