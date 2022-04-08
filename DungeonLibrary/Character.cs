@@ -49,7 +49,7 @@
         //method
         public override string ToString()
         {
-            return string.Format($"Name: {Name}\tLife: {Life}\tHit Chance: {HitChance}\tBlock: {Block}\tMax Life: {MaxLife}");
+            return string.Format($"Name: {Name}\nLife: {Life}\nHit Chance: {HitChance}\nBlock: {Block}\nMax Life: {MaxLife}");
         }
         
         //CalcBlock() – returns the value of Block

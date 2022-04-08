@@ -2,12 +2,25 @@
 {
     public enum WeaponType
     {
-        Swords,
-        Polearms,
-        Bows,
-        Staves,
-        Wands,
-        Starglobes, 
-        Greatswords
+        Sword,
+        Greataxe,
+        Gunblade,
+        Scythe,
+        Fist_Weapon,
+        Katana,
+        Daggers,
+        Firearm,
+        Throwing_Weapon,
+        Scepter,
+        Book,
+        Rapier,
+        Wand,
+        Cane,
+        Noulith,
+        Polearm,
+        Bow,
+        Staff,
+        Star_Globe, 
+        Greatsword
     }
 }

@@ -55,8 +55,8 @@
         //methods
         public override string ToString()
         {
-            return String.Format($"Name: {Name}\tType: {WeaponType}\nDamage: {MinDamage:n} - {MaxDamage:n}\t" +
-                $"Bonus Hit Chance: {BonusHitChance}\t{(IsTwoHanded ? "Two Handed" : "Not Two Handed")}");
+            return String.Format($"{Name}\n{WeaponType} ({(IsTwoHanded ? "Two Handed" : "")})\nDamage: {MinDamage:n} - {MaxDamage:n}\n" +
+                $"Bonus Hit Chance: {BonusHitChance}\n");
         }
     }
 }

@@ -2,13 +2,13 @@
 {
     public enum Race
     {
-        hyur, 
-        miqote,
-        elezen,
-        roegadyn,
-        lalafell,
-        aura,
-        hrothgar,
-        viera
+        Hyur, 
+        Miqote,
+        Elezen,
+        Roegadyn,
+        Lalafell,
+        Aura,
+        Hrothgar,
+        Viera
     }
 }

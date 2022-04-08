@@ -15,8 +15,12 @@ namespace Dungeon
         static string newEnemy()
         {
             //array of monster names
+            //random number generated within length of array
+            //return string value at random number index
             string[] enemyTypes =
             {
+                "tonberry",
+                "cactuar",
                 "giant spider",
                 "pegasus with red eyes",
                 "squirrel with absurdly sharp fangs",
@@ -25,19 +29,17 @@ namespace Dungeon
                 "panther",
                 "three headed wolf"
             };
-
-            //generate a random int to select a random item from the enemy array
+            
             Random rand = new Random();
             int enemySwitch = rand.Next(enemyTypes.Length);
-
-            //use the random number as index for enemy array
-            //return string value for name
             return enemyTypes[enemySwitch];
-        } //end NewEnemy() method
+        }
 
         static string newRoom()
         {
             //array of room descriptions
+            //random number generated within length of array
+            //return string value at random number index
             string[] roomTypes =
             {
                 "The room is so dark that you cannot see at all. \nYou feel a chill go through you as the wind whistles, \nas though you are in a long hallway.",
@@ -45,48 +47,41 @@ namespace Dungeon
                 "There is a bridge spanning from your side of the room to the other, above a floor of what appears to be lava. \nSome kind of fish is swimming through it, with what seem to be scales like thick armor. ",
                 "When you enter the room, you feel sunshine on your face and feel a breeze. \nIt looks like you have entered a beautiful meadow, but there is absolute silence.\nYou speak to make sure you can still hear, and realize there is no echo. Something is wrong here."
             };
-
-            //generate a random int to select an item from the room array
             Random rand = new Random();
             int roomSwitch = rand.Next(roomTypes.Length);
-
-            //use the random number as index for room array
-            //return string value for room description
             return roomTypes[roomSwitch];
-        } //end NewRoom() method
+        } 
 
         static bool battle()
         {
+            //TODO battle loop
             bool battleWin = true;
-            //TODO: calculate combat and return bool to indicate win or loss
             return battleWin;
         }
 
         static void Main(string[] args)
         {
-            Console.Title = "Dungeon Game";
-            #region title menu
-            Console.WriteLine("\n\n -*-*-*-*-*-*Dungeon Game-*-*-*-*-*-*");
-            Console.WriteLine(" -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n");
+            Console.Title = "Final Fantasy: Text Edition";
+            
+            #region Title screen, Keypress, Screen Clear
+            Console.WriteLine("\n\n -*-*-*-Final Fantasy: Text Edition-*-*-*");
+            Console.WriteLine(" -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n");
             Console.WriteLine("        Do you dare enter...?");
             Console.WriteLine("     Press any key to continue.");
             Console.ReadKey(true);
             Console.Clear();
-            #endregion title menu
-            //for do while loop for primary gameplay
+            #endregion
+
+            #region Loop to contain all active game content while continueGame = true
             bool continueGame = true;
-            do //this will continue while continueGame is true
+            do 
             {
-                //repeat value for player name menu
-                bool repeat = true;
-                string playerName = "";
-                string answer = "N";
-                
-                //create a weapon
-                Weapon playerWeapon = new Weapon(10, 30, "High Steel Fork", 3, true, WeaponType.Polearms);
-                //create a player
-                Player player = new Player(100, "New Player", 80, 40, 100, Race.viera, playerWeapon);
-                //get player name 
+                #region Do/While loop to get player name, Welcome message, Keypress
+                //Weapon playerWeapon = new Weapon(10, 30, "High Steel Fork", 3, true, WeaponType.Polearm);
+                //Player player = new Player(100, "Sarra", 80, 40, 100, Race.Viera, playerWeapon);
+                //TODO: Generate player
+                string playerName;
+                string answer;
                 do
                 {
                     Console.Clear();
@@ -95,9 +90,18 @@ namespace Dungeon
                     Console.Write($"\nHello, {playerName}. Did I get your name right? (Y/N) ");
                     answer = Console.ReadLine().ToUpper();
                 } while (answer != "Y" && answer != "YES");
-                Console.WriteLine("\nGreat!\nPress any key to proceed to the next room.");
-                Console.ReadKey(true);
-                //boolean counter variable for inner menu loop
+                //Console.WriteLine($"\nWelcome, {playerName}!\nPress any key to proceed to the next room.");
+                //Console.WriteLine("\n\n" + player + "\n\n");
+                //Console.ReadKey(true);
+                #endregion
+
+                #region Screen Clear, Welcome to the game prior to first menu loop
+                Console.Clear();
+                Console.WriteLine("\n\nWelcome to Eorzea!\n");
+                Console.WriteLine("It's time to fight your first battle!\n\n");
+                #endregion
+
+                #region Menu loop, Screen clear after selection is processed
                 bool repeatMenu = true;
                 //do while for menu loop
                 do //true until repeatMenu is false
@@ -108,8 +112,6 @@ namespace Dungeon
                     string room = newRoom();
                     string enemy = newEnemy();
                     //TODO: call a method to generate a new enemy and store in a string value
-
-                    Console.Clear();
                     Console.WriteLine($"There is a {enemy} standing before you, and it seems ready to fight.");
                     Console.WriteLine($"You look at the {enemy} and evaluate your options. What will you do? \n\n");
                     Console.WriteLine("Menu:");
@@ -165,13 +167,14 @@ namespace Dungeon
                     
                     //get key press to proceed                        
                     Console.ReadKey(true);
-
+                    Console.Clear();
                 } while (repeatMenu); //menu will repeat by default
+                #endregion
 
-                //break out of game loop
                 continueGame = false;
                 Console.WriteLine("Thank you for playing. Until next time.");
             } while (continueGame);
+            #endregion
         }
     }
 }
